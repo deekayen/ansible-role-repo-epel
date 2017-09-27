@@ -5,7 +5,7 @@
 
 - name: Check if Mono repo is already configured.
   stat:
-    path: {{ mono_repofile_path }}
+    path: "{{ mono_repofile_path }}"
   register: mono_repofile_result
 
 - name: Install Mono repo.
