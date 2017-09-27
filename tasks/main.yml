@@ -10,8 +10,8 @@
 
 - name: Install Mono repo.
   yum_repository:
-    name: "added from: http://download.mono-project.com/repo/centos{{ ansible_distribution_major_version }}/"
-    description: "download.mono-project.com_repo_centos{{ ansible_distribution_major_version }}_"
+    name: "download.mono-project.com_repo_centos{{ ansible_distribution_major_version }}_"
+    description: "added from: http://download.mono-project.com/repo/centos{{ ansible_distribution_major_version }}/"
     baseurl: "{{ mono_base_url }}"
     gpgkey: "{{ mono_repo_gpg_key_url }}"
     gpgcheck: yes
