@@ -1,8 +1,8 @@
-# Ansible Role: EPEL Repository
+# Ansible Role: Mono Project Repository
 
-[![Build Status](https://travis-ci.org/geerlingguy/ansible-role-repo-epel.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-repo-epel)
+[![Build Status](https://travis-ci.org/deekayen/ansible-role-repo-mono.svg?branch=master)](https://travis-ci.org/deekayen/ansible-role-repo-mono)
 
-Installs the [EPEL repository](https://fedoraproject.org/wiki/EPEL) (Extra Packages for Enterprise Linux) for RHEL/CentOS.
+Installs the [Mono repository](http://www.mono-project.com/download/#download-lin-centos) for RHEL/CentOS.
 
 ## Requirements
 
@@ -12,10 +12,11 @@ This role only is needed/runs on RHEL and its derivatives.
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-    epel_repo_url: "http://download.fedoraproject.org/pub/epel/{{ ansible_distribution_major_version }}/{{ ansible_userspace_architecture }}{{ '/' if ansible_distribution_major_version < '7' else '/e/' }}epel-release-{{ ansible_distribution_major_version }}-{{ epel_release[ansible_distribution_major_version] }}.noarch.rpm"
-    epel_repo_gpg_key_url: "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+    mono_base_url: "http://download.mono-project.com/repo/centos{{ ansible_distribution_major_version }}/"
+    mono_repo_gpg_key_url: "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF"
+    mono_repofile_path: "/etc/yum.repos.d/download.mono-project.com_repo_centos{{ ansible_distribution_major_version }}_.repo"
 
-The EPEL repo URL and GPG key URL. Generally, these should not be changed, but if this role is out of date, or if you need a very specific version, these can both be overridden.
+The Mono repo URL and GPG key URL. Generally, these should not be changed, but if this role is out of date, or if you need a very specific version, these can both be overridden.
 
 ## Dependencies
 
@@ -25,12 +26,8 @@ None.
 
     - hosts: servers
       roles:
-        - geerlingguy.repo-epel
+        - deekayen.repo-mono
 
 ## License
 
-MIT / BSD
-
-## Author Information
-
-This role was created in 2014 by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com/).
+BSD
