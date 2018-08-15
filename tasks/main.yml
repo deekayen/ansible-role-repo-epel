@@ -22,6 +22,7 @@
     gpgcheck: yes
     enabled: yes
     state: present
+  become: true
   register: result
   until: '"failed" not in result'
   retries: 5
