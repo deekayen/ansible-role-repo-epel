@@ -8,10 +8,15 @@
     path: "{{ mono_repofile_path }}"
   register: mono_repofile_result
 
+- name: Add Mono RPM key.
+  rpm_key:
+    key: "{{ mono_rpm_key_url }}"
+    state: present
+
 - name: Install Mono repo.
   yum_repository:
-    name: "download.mono-project.com_repo_centos{{ ansible_distribution_major_version }}_"
-    description: "added from: http://download.mono-project.com/repo/centos{{ ansible_distribution_major_version }}/"
+    name: "mono-centos{{ ansible_distribution_major_version }}-stable"
+    description: "mono-centos{{ ansible_distribution_major_version }}-stable"
     baseurl: "{{ mono_base_url }}"
     gpgkey: "{{ mono_repo_gpg_key_url }}"
     gpgcheck: yes
