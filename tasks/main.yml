@@ -12,6 +12,24 @@
   rpm_key:
     key: "{{ mono_rpm_key_url }}"
     state: present
+  become: true
+  register: key_result
+
+- debug:
+    var: key_result
+    verbosity: 2
+
+- name: Setup /etc/yum.repos.d path.
+  file:
+    path: /etc/yum.repos.d
+    state: directory
+    owner: root
+    group: root
+  register: repo_path
+
+- debug:
+    var: repo_path
+    verbosity: 2
 
 - name: Install Mono repo.
   yum_repository:
@@ -23,8 +41,9 @@
     enabled: yes
     state: present
   become: true
-  register: result
-  until: '"failed" not in result'
-  retries: 5
-  delay: 10
+  register: repo_result
   when: not mono_repofile_result.stat.exists
+
+- debug:
+    var: repo_result
+    verbosity: 2
