@@ -8,17 +8,42 @@
     path: "{{ mono_repofile_path }}"
   register: mono_repofile_result
 
+- name: Add Mono RPM key.
+  rpm_key:
+    key: "{{ mono_rpm_key_url }}"
+    state: present
+  become: true
+  register: key_result
+
+- debug:
+    var: key_result
+    verbosity: 2
+
+- name: Setup /etc/yum.repos.d path.
+  file:
+    path: /etc/yum.repos.d
+    state: directory
+    owner: root
+    group: root
+  register: repo_path
+
+- debug:
+    var: repo_path
+    verbosity: 2
+
 - name: Install Mono repo.
   yum_repository:
-    name: "download.mono-project.com_repo_centos{{ ansible_distribution_major_version }}_"
-    description: "added from: http://download.mono-project.com/repo/centos{{ ansible_distribution_major_version }}/"
+    name: "mono-centos{{ ansible_distribution_major_version }}-stable"
+    description: "mono-centos{{ ansible_distribution_major_version }}-stable"
     baseurl: "{{ mono_base_url }}"
     gpgkey: "{{ mono_repo_gpg_key_url }}"
     gpgcheck: yes
     enabled: yes
     state: present
-  register: result
-  until: '"failed" not in result'
-  retries: 5
-  delay: 10
+  become: true
+  register: repo_result
   when: not mono_repofile_result.stat.exists
+
+- debug:
+    var: repo_result
+    verbosity: 2

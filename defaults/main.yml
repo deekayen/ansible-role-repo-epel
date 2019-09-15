@@ -1,4 +1,5 @@
 ---
-mono_base_url: "https://download.mono-project.com/repo/centos{{ ansible_distribution_major_version }}/"
-mono_repo_gpg_key_url: "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF"
-mono_repofile_path: "/etc/yum.repos.d/download.mono-project.com_repo_centos{{ ansible_distribution_major_version }}_.repo"
+mono_base_url: "https://download.mono-project.com/repo/centos{{ ansible_distribution_major_version }}-stable/"
+mono_repo_gpg_key_url: "https://download.mono-project.com/repo/xamarin.gpg"
+mono_repofile_path: "/etc/yum.repos.d/mono-centos{{ ansible_distribution_major_version }}-stable.repo"
+mono_rpm_key_url: "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF"
