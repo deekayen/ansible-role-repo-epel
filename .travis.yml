@@ -1,17 +1,36 @@
 ---
+
+language: python
+dist: focal
 services: docker
 
 env:
-  - distro: centos7
-  - distro: centos6
+  global:
+    - ROLE_NAME: repo_mono
+  jobs:
+    - MOLECULE_DISTRO: centos6
+    - MOLECULE_DISTRO: centos7
+    - MOLECULE_DISTRO: centos8
+
+addons:
+  apt:
+    sources:
+      - sourceline: 'deb https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
+    packages:
+      - docker
+      - yamllint
+    update: true
+
+install:
+  - pip install --upgrade --upgrade-strategy eager -r requirements.txt
+
+before_script:
+  - cd ../
+  - mv ansible-role-$ROLE_NAME deekayen.$ROLE_NAME
+  - cd deekayen.$ROLE_NAME
 
 script:
-  # Download test shim.
-  - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
-  - chmod +x ${PWD}/tests/test.sh
-
-  # Run tests.
-  - ${PWD}/tests/test.sh
+  - molecule test
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

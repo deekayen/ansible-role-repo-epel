@@ -1,6 +1,6 @@
 # Ansible Role: Mono Project Repository
 
-[![Build Status](https://travis-ci.org/deekayen/ansible-role-repo-mono.svg?branch=master)](https://travis-ci.org/deekayen/ansible-role-repo-mono)
+[![Build Status](https://travis-ci.org/deekayen/ansible-role-repo-mono.svg?branch=main)](https://travis-ci.org/deekayen/ansible-role-repo-mono) [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 
 Installs the [Mono repository](https://www.mono-project.com/download/stable/#download-lin-centos) for RHEL/CentOS.
 
