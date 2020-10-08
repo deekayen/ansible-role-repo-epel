@@ -4,4 +4,4 @@
   become: true
 
   roles:
-    - role: deekayen.repo-mono
+    - deekayen.repo_mono
