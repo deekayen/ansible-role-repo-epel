@@ -30,6 +30,9 @@ jobs:
       - name: Install test dependencies.
         run: pip3 install -r requirements.txt
 
+      - name: Rename repo folder to a proper galaxy alias.
+        run: cd ../ && mv ansible-role-repo-mono deekayen.repo_mono && cd deekayen.repo_mono
+
       - name: Run Molecule tests.
         run: molecule test
         env:
