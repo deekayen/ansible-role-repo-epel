@@ -26,7 +26,7 @@ install:
 
 before_script:
   - cd ../
-  - mv ansible-role-repo-mono deekayen.$ROLE_NAME
+  - ln -s ansible-role-repo-mono deekayen.$ROLE_NAME
   - cd deekayen.$ROLE_NAME
 
 script:
