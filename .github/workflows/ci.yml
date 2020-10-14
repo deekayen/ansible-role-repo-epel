@@ -29,7 +29,7 @@ jobs:
         run: pip install --upgrade --upgrade-strategy eager -r requirements.txt
 
       - name: Rename repo folder to a proper galaxy alias.
-        run: cd ../ && mv ansible-role-repo-mono deekayen.repo_mono && cd deekayen.repo_mono
+        run: cd ../ && ln -s ansible-role-repo-mono deekayen.repo_mono && cd ansible-role-repo-mono
 
       - name: Run Molecule tests.
         run: molecule test
