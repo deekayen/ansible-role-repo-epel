@@ -27,8 +27,11 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Install yamllint.
+        run: apt install yamllint
+
       - name: Install test dependencies.
-        run: pip3 install -r requirements.txt
+        run: pip install --upgrade --upgrade-strategy eager -r requirements.txt
 
       - name: Link repo folder to a proper galaxy alias.
         run: cd ../ && ln -s ansible-role-repo-mono deekayen.repo_mono && cd ansible-role-repo-mono
