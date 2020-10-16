@@ -27,9 +27,6 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install yamllint.
-        run: apt install yamllint
-
       - name: Install test dependencies.
         run: pip install --upgrade --upgrade-strategy eager -r requirements.txt
 
