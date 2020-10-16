@@ -1,5 +1,4 @@
-molecule
-molecule[docker]>=3.0.0
+molecule[docker]
 ansible>=2.8.2
 ansible-lint>=4.1.0
 flake8>=3.7.7
