@@ -1,6 +1,6 @@
 # Ansible Role: Mono Project Repository
 
-![CI](https://github.com/deekayen/ansible-role-repo-mono/workflows/CI/badge.svg) [![Build Status](https://travis-ci.org/deekayen/ansible-role-repo-mono.svg?branch=main)](https://travis-ci.org/deekayen/ansible-role-repo-mono) [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)  ![BSD 3-Clause license](https://img.shields.io/badge/license-BSD%203--Clause-blue) ![Linux platform](https://img.shields.io/badge/platform-linux-lightgrey)
+[![CI](https://github.com/deekayen/ansible-role-repo-mono/workflows/CI/badge.svg)](https://github.com/deekayen/ansible-role-repo-mono/actions?query=workflow%3ACI)  [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)  ![BSD 3-Clause license](https://img.shields.io/badge/license-BSD%203--Clause-blue) ![Linux platform](https://img.shields.io/badge/platform-linux-lightgrey)
 
 Installs the [Mono repository](https://www.mono-project.com/download/stable/#download-lin-centos) for RHEL/CentOS.
 
