@@ -21,7 +21,7 @@ jobs:
       - name: Check out the codebase.
         uses: actions/checkout@v2
         with:
-          path: 'geerlingguy.phpmyadmin'
+          path: 'deekayen.repo_mono'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2
@@ -43,13 +43,14 @@ jobs:
     strategy:
       matrix:
         distro:
-          - centos6
           - centos7
           - centos8
 
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
+        with:
+          path: 'deekayen.repo_mono'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2
@@ -57,10 +58,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies.
-        run: pip install --upgrade --upgrade-strategy eager -r requirements.txt
-
-      - name: Link repo folder to a proper galaxy alias.
-        run: cd ../ && ln -s ansible-role-repo-mono deekayen.repo_mono && cd ansible-role-repo-mono
+        run: pip3 install --upgrade --upgrade-strategy eager -r requirements.txt
 
       - name: Run Molecule tests.
         run: molecule test
