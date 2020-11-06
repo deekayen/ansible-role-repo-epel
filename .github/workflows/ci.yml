@@ -35,6 +35,7 @@ jobs:
         run: |
           yamllint .
           ansible-lint
+          flake8
 
   molecule:
     name: Molecule
